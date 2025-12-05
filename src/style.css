@@ -1,5 +1,5 @@
 body {
-    background-image: url("/image/windowsxpbg.jpg");
+    background-image: url("image/windowsxpbg.jpg");
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
