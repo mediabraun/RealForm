@@ -7,7 +7,7 @@ const comp = document.getElementById("comp");
 const trash = document.getElementById("trash");
 
 ccbtn.addEventListener("click", () => {
-    window.location.href = "calculator.html";
+    window.location.href = "RealForm/calculator.html";
 });
 
 dgbtn.addEventListener("click", () => {
