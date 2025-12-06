@@ -1,3 +1,4 @@
+/* Body */
 body {
     background-image: url("../images/windowsxpbg.jpg");
     background-attachment: fixed;
@@ -8,24 +9,24 @@ body {
     margin: 0;
 }
 
-/* Headers */
+/* Main title */
 h1 {
     cursor: pointer;
     font-family: 'windowsxp', 'Tahoma';
     font-size: 8vw;
+    max-font-size: 80px;
     text-align: center;
-    margin-bottom: 0.5%;
+    margin-bottom: 1vh;
 }
+
 .grad-text {
     background: linear-gradient(yellow, green);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
-    transition: transform 0.3s ease-in-out;
 }
-.grad-text:hover { transform: scale(1.2); }
 
+/* Headers */
 h3 {
     color: white;
     font-weight: lighter;
@@ -38,24 +39,25 @@ h3 {
 .button {
     cursor: pointer;
     font-size: 4vw;
+    max-font-size: 18px;
     transition: transform 0.1s ease-in-out;
     box-shadow: -4px 4px 2px rgba(0,0,0,0.32);
-    width: 80%;
-    max-width: 400px;
-    padding: 12px 0;
-    margin: 10px auto;
+    width: 90%;
+    max-width: 300px; /* capped width for phones */
+    padding: 10px 0;
+    margin: 8px auto;
     display: block;
     background: linear-gradient(white, grey);
     border-radius: 5px;
 }
 .button:hover { transform: scale(1.05); }
 
-/* Calculator Box */
+/* Calculator box */
 #calculatorbox {
     width: 90%;
-    max-width: 450px;
+    max-width: 400px; /* smaller max width */
     margin: 5vh auto;
-    padding: 20px;
+    padding: 15px;
     background: linear-gradient(rgba(0,36,128,0.55), rgba(85,255,0,0.4), rgba(0,100,0,0.87));
     display: flex;
     flex-direction: column;
@@ -66,7 +68,7 @@ h3 {
 /* Form */
 .form-group {
     width: 100%;
-    margin: 10px 0;
+    margin: 8px 0;
     display: flex;
     flex-direction: column;
 }
@@ -75,24 +77,41 @@ h3 {
     width: 100%;
     padding: 8px;
     font-size: 4vw;
+    max-font-size: 16px;
     box-shadow: -3px 3px 2px rgba(0,0,0,0.32);
     border-radius: 4px;
 }
 .form-group label {
     color: white;
     font-size: 4vw;
+    max-font-size: 14px;
     margin-bottom: 5px;
     text-shadow: 1px 1px 0px rgb(44,44,44);
 }
 
-/* Desktop icons & hearts */
-#comp, #trash, .heart {
+/* Desktop icons */
+#comp, #trash {
     width: 12vw;
-    max-width: 80px;
+    max-width: 50px; /* capped size for small screens */
+    height: auto;
+    position: fixed;
+    left: 3vw;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
-#comp { top: 30px; left: 3vw; position: fixed; cursor: pointer; }
-#trash { top: 130px; left: 3vw; position: fixed; cursor: pointer; }
-.heart { position: fixed; top: 3vw; right: 3vw; cursor: pointer; animation: slideHeart 2s ease-in-out infinite; }
+#comp { top: 3vh; }
+#trash { top: 10vh; }
+
+/* Hearts */
+.heart {
+    position: fixed;
+    top: 3vh;
+    right: 3vw;
+    width: 10vw;
+    max-width: 40px;
+    cursor: pointer;
+    animation: slideHeart 2s ease-in-out infinite;
+}
 
 /* Animations */
 @keyframes slideHeart {
@@ -101,11 +120,45 @@ h3 {
     100% { transform: translateY(0) rotate(8deg); }
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    h1 { font-size: 12vw; }
+/* Start & taskbar */
+#start {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgb(61, 61, 61);
+    background: linear-gradient(rgb(40, 168, 40), rgb(117, 230, 117));
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 80px;
+    color: white;
+    border: none;
+    font-size: 12px;
+    border-radius: 7%;
+    text-shadow: -1px 1px 0px rgb(123, 123, 123);
+}
+#taskbar {
+    background: linear-gradient(rgb(59, 111, 255), rgb(0, 68, 255));
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* Units wrapper */
+#units-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Responsive for very small screens */
+@media (max-width: 400px) {
+    h1 { font-size: 10vw; }
     h3 { font-size: 6vw; }
-    .button { font-size: 5vw; }
-    .form-group label, .form-group input, .form-group select { font-size: 5vw; }
-    #calculatorbox { padding: 10px; }
+    .button { font-size: 12px; max-width: 90%; padding: 8px 0; }
+    .form-group input, .form-group select { font-size: 12px; }
+    .form-group label { font-size: 12px; }
+    #comp, #trash, .heart { max-width: 35px; }
 }
